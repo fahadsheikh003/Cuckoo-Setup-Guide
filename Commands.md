@@ -71,7 +71,7 @@ Verfication of last Command
     getcap /usr/sbin/tcpdump
 /usr/sbin/tcpdump = cap_net_admin,cap_net_raw+eip
 
-# logout and login as new user
+logout and login as new user
 
 Create a virtual environment and install cuckoo and vmcloak
     
@@ -116,7 +116,7 @@ Set iproutes for vboxnet0 (global routing)
     sudo iptables -A FORWARD -s 192.168.56.0/24 -d 192.168.56.0/24 -j ACCEPT
     sudo iptables -A FORWARD -j LOG
 
-# Write a script for above commands (Network COnfiguration) and run that script everytime before starting cuckoo
+Write a script for above commands (Network Configuration) and run that script everytime before starting cuckoo
 
 Install windows 7
 
@@ -159,7 +159,7 @@ Using the --count parameter, we can create multiple snapshots at once. Let’s c
     
     vmcloak snapshot --count 4 win7x64cuckoo 192.168.56.101
 
-# if encounter multi-attach disk vm error then fix it manually (covered in the detailed report attached)
+If encounter multi-attach disk vm error then fix it manually (covered in the detailed report attached)
 
 The above command will create VMs win7x64cuckoo1-4 with IPs 192.168.56.101-104.
 After VMCloak is finished, the VMs can be listed using:
@@ -170,12 +170,12 @@ Add guest VMs to cuckoo (this command while automatically add guest VMs to virtu
 
     while read -r vm ip; do cuckoo machine --add $vm $ip; done < <(vmcloak list vms)
 
-# NOTE: By default, Cuckoo Current Working Directory (CWD) is **/home/user/.cuckoo** where as all the configuration files are located in **conf** directory inside CWD.
+NOTE: By default, Cuckoo Current Working Directory (CWD) is **/home/user/.cuckoo** where as all the configuration files are located in **conf** directory inside CWD.
 
 After adding guest VMs remove cuckoo1 from virtualbox.conf (exists there by default)
 Remove all the content from line **[cuckoo1]** to line **osprofile =** and cuckoo1 from list of vms
 
-# Configure Per Network Analysis
+Configure Per Network Analysis
 In order to enable direct internet to analysis VM, open the /etc/iproute2/rt_tables file and roll a random number that is not yet present in this file with your dice of choice and use it to craft a new line at the end of the file e.g; "400    eth0" 
 
 For Internet Routing
