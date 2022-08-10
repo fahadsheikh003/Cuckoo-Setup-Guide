@@ -3,6 +3,7 @@
 
 # add a new user 
 
+
   sudo adduser cuckoo
 # set password and other configurations
 
