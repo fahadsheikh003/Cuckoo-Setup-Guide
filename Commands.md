@@ -1,8 +1,7 @@
-# Before starting make sure virtualization is enabled on the host
-# and make sure if your installing ubuntu as the main OS then must disable secure boot
+Before starting make sure virtualization is enabled on the host
+and make sure if your installing ubuntu as the main OS then must disable secure boot
 
-# add a new user 
-
+add a new user 
 
   sudo adduser cuckoo
 # set password and other configurations
