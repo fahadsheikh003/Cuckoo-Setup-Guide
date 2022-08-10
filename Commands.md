@@ -84,7 +84,7 @@ Start cuckoo to setup default configuration and download signatures of known fil
     cuckoo init
     cuckoo community
 
-# Installing Guest OS for cuckoo
+# Setting up guest VMs for cuckoo
 Download windows 7 iso file
 
     wget https://cuckoo.sh/win7ultimate.iso
