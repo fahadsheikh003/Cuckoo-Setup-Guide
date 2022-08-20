@@ -42,7 +42,7 @@ Install python2 and pip2
 
 Install valatility (optional but recommended)
     
-    sudo python2 -m pip install -U distorm3 yara pycrypto pillow openpyxl ujson pytz ipython capstone
+    sudo python2 -m pip install -U distorm3 yara-python pycrypto pillow openpyxl ujson pytz ipython capstone
     sudo ln -s /usr/local/lib/python2.7/dist-packages/usr/lib/libyara.so /usr/lib/libyara.so
     sudo python2 -m pip install -U git+https://github.com/volatilityfoundation/volatility.git
 
@@ -194,6 +194,7 @@ After Installing Open file /etc/inetsim/inetsim.conf and write "service_bind_Add
     sudo pkill /var/run/inetsim.pid
     sudo inetsim 1>/dev/null &
     
+Lastly, Open routing.conf and replace "enabled = no" to "enabled = no" under inetsim section.
 
 Setup Postgres as DBMS
 
@@ -224,12 +225,7 @@ Start Cuckoo Rooter
 Start Cuckoo
 
     cuckoo
-
-If for some reason a conflict occurs in package yara (installed while installing volatility) then uninstall that package and install the latest package yara-python
-
-    sudo pip uninstall yara
-    sudo pip install yara-python
-
+    
 Start web panel
 
     cuckoo web --host 127.0.0.1 --port 8080 
