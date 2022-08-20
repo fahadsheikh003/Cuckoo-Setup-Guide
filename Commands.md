@@ -157,11 +157,11 @@ VMCloak will register a VirtualBox VM for each snapshot created. After snapshott
 
 Using the --count parameter, we can create multiple snapshots at once. Let’s create four
     
-    vmcloak snapshot --count 4 win7x64cuckoo 192.168.56.101
+    vmcloak snapshot --count 4 win7x64cuckoo win7_ 192.168.56.101
 
-If encounter multi-attach disk vm error then fix it manually (covered in the detailed report attached)
+If encounter multi-attach disk vm error then fix it manually in Virtualbox by creating a dummy vm and attach that win7x64cuckoo image with dummy vm and change disk type of attached disk (win7x64cuckoo) from Virtual Media Manager in Virtualbox.
 
-The above command will create VMs win7x64cuckoo1-4 with IPs 192.168.56.101-104.
+The above command will create VMs using disk image **win7x64cuckoo** with name win7_1 - win7_4 and with IPs 192.168.56.101-104.
 After VMCloak is finished, the VMs can be listed using:
     
     vmcloak list vms
@@ -179,7 +179,21 @@ Configure Per Network Analysis
 In order to enable direct internet to analysis VM, open the /etc/iproute2/rt_tables file and roll a random number that is not yet present in this file with your dice of choice and use it to craft a new line at the end of the file e.g; "400    eth0" 
 
 For Internet Routing
-open routing.conf and write eth0 in front of internet
+open routing.conf and write **eth0** (replace eth0 with Network Interface you are using) in front of internet
+
+For Drop Routing
+open routing.conf and write **yes** in front of drop
+
+For inetsim Routing
+Firstly Install inetsim
+
+    sudo apt -y install inetsim
+    
+After Installing Open file /etc/inetsim/inetsim.conf and write "service_bind_Address 192.168.56.1" below heading of service_bind_address and "dns_default_ip 192.168.56.1" under the heading of dns_default_ip. And Then restart the machine or relaunch inetsim.
+
+    sudo pkill /var/run/inetsim.pid
+    sudo inetsim 1>/dev/null &
+    
 
 Setup Postgres as DBMS
 
