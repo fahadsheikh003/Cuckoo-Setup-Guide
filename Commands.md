@@ -1,3 +1,4 @@
+# This guide works for Ubuntu 20.04. For Ubuntu 22.04 you have to update source list.
 # Before starting make sure virtualization is enabled on the host
 # And make sure if your installing ubuntu as the main OS then must disable secure boot
 
@@ -32,7 +33,7 @@ Install pydeep (optional but recommended)
     python setup.py test
     sudo python setup.py install
     cd ..
-    rm -r pydeep
+    rm -r -f pydeep
 
 Install python2 and pip2
 
