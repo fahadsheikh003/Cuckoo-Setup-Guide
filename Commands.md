@@ -190,7 +190,7 @@ Firstly Install inetsim
 
     sudo apt -y install inetsim
     
-After Installing Open file /etc/inetsim/inetsim.conf and write "service_bind_Address 192.168.56.1" below heading of service_bind_address and "dns_default_ip 192.168.56.1" under the heading of dns_default_ip. And Then restart the machine or relaunch inetsim.
+After Installing Open file /etc/inetsim/inetsim.conf and write "service_bind_address 192.168.56.1" below heading of service_bind_address and "dns_default_ip 192.168.56.1" under the heading of dns_default_ip. And Then restart the machine or relaunch inetsim.
 
     sudo pkill /var/run/inetsim.pid
     sudo inetsim 1>/dev/null &
